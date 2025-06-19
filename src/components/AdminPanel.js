@@ -35,9 +35,9 @@ const AdminPanel = () => {
       setLoading(true);
       setError(null);
       try {
-        const res = await axios.get('http://localhost:5000/api/admin/pending-users', {
-          headers: { Authorization: `Bearer ${token}` },
-        });
+       const res = await axios.get(`${BASE_URL}/api/admin/pending-users`, {
+     headers: { Authorization: `Bearer ${token}` },
+      });
         setPendingUsers(res.data);
       } catch (err) {
         console.error('Error fetching pending users:', err);

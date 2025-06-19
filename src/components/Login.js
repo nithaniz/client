@@ -18,7 +18,8 @@ function Login() {
     
     try {
       
-const response = await api.post(apiEndpoints.login, formData);
+     const response = await axios.post(`${baseURL}${apiEndpoints.login}`, formData);
+
       
       const { user, token } = response.data;
 
