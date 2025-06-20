@@ -8,6 +8,9 @@ export const apiEndpoints = {
   adminLogin: '/api/admin/login',
   forgotPassword: '/api/auth/forgot-password',
   resetPassword: '/api/auth/reset-password',
-  adminPanel:  '/api/auth/adminPanel',
+  adminPanel: '/api/admin/users',
+  approveUser: '/api/admin/approve-users',
+  pendingUsers: '/api/admin/pending-users',
+
   // add more if needed
 };

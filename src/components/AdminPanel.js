@@ -15,7 +15,7 @@ const AdminPanel = () => {
   // Fetch all users function memoized
   const fetchAllUsers = useCallback(async () => {
     try {
-       const res = await fetch(`${BASE_URL}${apiEndpoints.AdminPanel}`, {
+       const res = await axios.get(`${BASE_URL}${apiEndpoints.adminPanel}`, {
         headers: { Authorization: `Bearer ${token}` },
       });
       setAllUsers(res.data);
@@ -35,7 +35,7 @@ const AdminPanel = () => {
       setLoading(true);
       setError(null);
       try {
-       const res = await axios.get(`${BASE_URL}/api/admin/pending-users`, {
+       const res = await axios.get(`${BASE_URL}${apiEndpoints.pendingUsers}`, {
      headers: { Authorization: `Bearer ${token}` },
       });
         setPendingUsers(res.data);
@@ -59,13 +59,13 @@ const AdminPanel = () => {
   // Approve user function
   const approveUser = async (userId) => {
     try {
-      await axios.put(`http://localhost:5000/api/admin/approve-user/${userId}`, {}, {
+      await axios.put(`${BASE_URL}${apiEndpoints.approveUser}/${userId}`, {}, {
         headers: { Authorization: `Bearer ${token}` }
       });
 
       // Refresh both lists after approval
       fetchAllUsers();
-      const res = await axios.get('http://localhost:5000/api/admin/pending-users', {
+      const res = await axios.get(`${BASE_URL}${apiEndpoints.pendingUsers}`, {
         headers: { Authorization: `Bearer ${token}` },
       });
       setPendingUsers(res.data);
