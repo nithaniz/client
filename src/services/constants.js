@@ -9,7 +9,7 @@ export const apiEndpoints = {
   forgotPassword: '/api/auth/forgot-password',
   resetPassword: '/api/auth/reset-password',
   adminPanel: '/api/admin/users',
-  approveUser: '/api/admin/approve-user ',
+  approveUser: '/api/admin/approve-user',
   pendingUsers: '/api/admin/pending-users',
 
   // add more if needed
