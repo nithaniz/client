@@ -1,15 +1,4 @@
-// App.js
-import './App.css';
-import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
-import Login from './components/Login';
-import Signup from './components/Signup';
-import Home from './components/home';
-import AdminLogin from './components/AdminLogin';
-import AdminPanel from './components/AdminPanel';
-import LandingPage from './components/LandingPage';
-import Dashboard from './components/Dashboard';
-import ForgotPassword from './components/ForgotPassword';
-import ResetPassword from './components/ResetPassword';
+import PrivateRoute from './components/PrivateRoute'; // 👈 import it
 
 function App() {
   return (
@@ -20,18 +9,13 @@ function App() {
           <Route path="/login" component={Login} />
           <Route path="/signup" component={Signup} />
           <Route path="/AdminLogin" component={AdminLogin} />
-         <Route path="/AdminPanel" component={AdminPanel} />
-          <Route path="/LandingPage" component={LandingPage} />
-          <Route path="/Dashboard" component={Dashboard} />
+          <PrivateRoute path="/AdminPanel" component={AdminPanel} />  {/* 🔒 protected */}
+          <PrivateRoute path="/LandingPage" component={LandingPage} /> {/* 🔒 protected */}
+          <PrivateRoute path="/Dashboard" component={Dashboard} /> {/* 🔒 protected */}
           <Route path="/ForgotPassword" component={ForgotPassword} />
           <Route path="/ResetPassword" component={ResetPassword} />
-          
-          
         </Switch>
       </Router>
     </div>
   );
 }
-
-export default App;
-
